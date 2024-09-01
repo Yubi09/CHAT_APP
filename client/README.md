@@ -1,8 +1,5 @@
-# React + Vite
+This is a full stack responsive chat application made using using sockets for realtime communication. Users will also be able to create groups and upload files and download files.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React, Node.js, Express, MongoDB, Socket.io, Zustand and many more awesome tech is used to create this app.
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+It is not yet finished and currently in its development stage.
