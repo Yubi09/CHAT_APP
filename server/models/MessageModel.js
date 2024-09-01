@@ -22,7 +22,7 @@ const messageSchema = new mongoose.Schema({
       return this.messageType === 'text';
     },
   },
-  fileURL: {
+  fileUrl: {
     type: String,
     required: function () {
       return this.messageType === 'file';

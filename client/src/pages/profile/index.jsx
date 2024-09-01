@@ -21,7 +21,7 @@ const Profile = () => {
   const { userInfo, setUserInfo } = useAppStore();
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
-  const [image, setImage] = useState('');
+  const [image, setImage] = useState(null);
   const [hovered, setHovered] = useState(false);
   const [selectedColor, setSelectedColor] = useState(0);
   const fileInputRef = useRef(null);
@@ -32,7 +32,7 @@ const Profile = () => {
       setLastName(userInfo.lastName);
       setSelectedColor(userInfo.color);
     }
-    if(userInfo.image){
+    if (userInfo.image) {
       setImage(`${HOST}/${userInfo.image}`);
     }
   }, [userInfo]);
@@ -86,6 +86,8 @@ const Profile = () => {
 
   const handleImageChange = async (event) => {
     const file = event.target.files[0];
+    console.log({ file });
+    
     if (file) {
       const formData = new FormData();
       formData.append('profile-image', file);
@@ -96,11 +98,6 @@ const Profile = () => {
         setUserInfo({ ...userInfo, image: response.data.image });
         toast.success('Image uploaded successfully');
       }
-      const reader = new FileReader();
-      reader.onload = () => {
-        setImage(reader.result);
-      };
-      reader.readAsDataURL(file);
     }
   };
 
@@ -116,7 +113,6 @@ const Profile = () => {
       }
     } catch (error) {
       console.log({ error });
-      
     }
   };
 
@@ -136,7 +132,7 @@ const Profile = () => {
               {image ? (
                 <AvatarImage
                   src={image}
-                  alt="profile"
+                  alt="profile-image"
                   className="object-cover w-full h-full bg-black"
                 />
               ) : (

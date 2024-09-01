@@ -138,7 +138,7 @@ export const addProfileImage = async (request, response, next) => {
       return response.status(400).send('Image is required');
     }
     const date = Date.now();
-    let fileName = 'uploads/profiles' + date + request.file.originalname;
+    let fileName = 'uploads/profiles/' + date + request.file.originalname;
     renameSync(request.file.path, fileName);
 
     const updatedUser = await User.findByIdAndUpdate(
@@ -180,7 +180,6 @@ export const removeProfileImage = async (request, response, next) => {
     return response.status(200).send('Profile image removed successfully');
   } catch (error) {
     console.log({ error });
-    return response.status(500).send('INTERNAL SERVER ERROR');
   }
 };
 

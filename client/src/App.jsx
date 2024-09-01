@@ -1,4 +1,4 @@
-import React, { useEffect, useState, Children } from 'react';
+import { useEffect, useState, Children } from 'react';
 import { Button } from './components/ui/button';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Auth from './pages/auth';
@@ -36,7 +36,6 @@ const App = () => {
         else {
           setUserInfo(undefined);
         }
-        console.log({response});
       } catch (error) {
         setUserInfo(undefined);
       }
